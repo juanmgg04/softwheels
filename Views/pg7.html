@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Public/Css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/e6a247fa57.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../Public/Css/style7.css">
+
+
+</head>
+<body>
+    <body class="text-bg-secondary p-3" >
+    
+        <nav class="navbar  fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand " href="#"></a>
+              <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title bg-linght text-light" id="offcanvasNavbarLabel"><b>USUARIO</b></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active bg-linght text-light" aria-current="page" href="pg1.html"><b>Cerrar Sesión</b></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="#" onclick="eliminar()"><b>Eliminar Cuenta</b></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <b>Actualizar Datos</b>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Nombre de Usuario</a></li>
+                        <li><a class="dropdown-item" href="#">Contraseña</a></li>
+                        <li><a class="dropdown-item" href="#">Nombre y Apellidos</a></li>
+                        <li><a class="dropdown-item" href="#">Identificación</a></li>
+                        <li><a class="dropdown-item" href="#">Número de Teléfono</a></li>
+                        <li><a class="dropdown-item" href="#">Correo</a></li>
+                        <li><a class="dropdown-item" href="#">Fecha de Nacimiento</a></li>
+                       
+                        
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="row">
+
+           
+        <div class="col-md-4">
+            <img src="../Public/Img/logopr.png" id="logo">
+        </div>
+    </div>
+
+    <h1>Datos de Salida</h1>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="text" placeholder="Usuario" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        <input type="text" placeholder="Identificación" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        <input type="text" placeholder="Matrícula" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        <input type="date" placeholder="Fecha y Hora de Ingreso" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        <input type="date" placeholder="Fecha y Hora de Salida" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+        </div>
+    </div>
+
+
+    <div class="buttons">
+        <a href="pg1.html"><button class="btn btn-danger link-white " >Confirmar</button></a>
+        <br><br>
+        <a href="pg1.html"><button class="btn btn-danger link-white ">Volver</button></a>
+    </div>   
+    <script src="JS/sweetalert.min.js"></script>
+
+<script>
+    function eliminar()
+    {
+        swal({
+  title: "¿Estás seguro?",
+  text: "Una vez eliminado no se podrá recuperar la cuenta",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("La cuenta se eliminó con éxito", {
+      icon: "success",
+    });
+ 
+    location.href="#"
+  } else {
+    swal("La cuenta no fue eliminada");
+  }
+});
+    }
+</script> 
+
+    
+</body>
+</html>

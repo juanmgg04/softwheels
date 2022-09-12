@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software para parqueadero</title>
+    <link rel="stylesheet" href="../Public/Css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/e6a247fa57.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Public/Css/style13.css">
+    <script src="Public/JS/pg11.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+
+    <div id="fondo" class="container"><br>
+
+        <div id="estacion" class="row">
+            <h3>Parqueadero CTDMA</h3>
+        </div><br><br>
+        <div id="parkings" class="col-md-9">
+            <button class="btn btn-success" id="p1" onclick="p1()">1</button>
+            <button class="btn btn-success" id="p2" onclick="p2()">2</button>
+            <button class="btn btn-success" id="p3" onclick="p3()">3</button>
+            <button class="btn btn-success" id="p4">4</button><br>
+        </div>
+        <div id="parkings" class="col-md-9">
+            <button class="btn btn-success" id="p5">5</button>
+            <button class="btn btn-success" id="p6">6</button>
+            <button class="btn btn-success" id="p7">7</button>
+            <button class="btn btn-success" id="p8">8</button>
+        </div>
+        <div id="parkings" class="col-md-8">
+            <button class="btn btn-success" id="p9">10</button>
+            <button class="btn btn-success" id="p8">11</button>
+            <button class="btn btn-success" id="p8">12</button>
+            <button class="btn btn-success" id="p8">13</button>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+        var click1 = false
+
+        function p1() {
+
+
+            if (click1 == false) {
+                document.getElementById("p1").style.backgroundColor = "rgb(225, 68, 68)"
+                click1 = true
+
+            } else {
+                document.getElementById("p1").style.backgroundColor = "green"
+                click1 = false
+            }
+
+        }
+
+        function p2() {
+
+
+            if (click1 == false) {
+                document.getElementById("p2").style.backgroundColor = "rgb(225, 68, 68)"
+                click1 = true
+
+            } else {
+                document.getElementById("p2").style.backgroundColor = "green"
+                click1 = false
+            }
+
+        }
+    </script>
+
+</body>
