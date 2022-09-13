@@ -48,13 +48,15 @@
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="#">Nombre de Usuario</a></li>
-                    <h1><?php $_SESSION['nombre_usuario']; ?></h1>
-                    <li><a class="dropdown-item" href="#">Contraseña</a></li>
-                    <li><a class="dropdown-item" href="#">Nombre y Apellidos</a></li>
-                    <li><a class="dropdown-item" href="#">Identificación</a></li>
-                    <li><a class="dropdown-item" href="#">Número de Teléfono</a></li>
+                    <h4 style="text-align:center ;"><?php echo $_SESSION['nombre_usuario'];?></h4>
+                    <li><a class="dropdown-item" href="#">Nombre y Apellidos</a>
+                    <h4 style="text-align:center ;"><?php echo $_SESSION['nombre_apellidos'];?></h4>
                     <li><a class="dropdown-item" href="#">Correo</a></li>
-                    <li><a class="dropdown-item" href="#">Fecha de Nacimiento</a></li>
+                    <h4 style="text-align:center ;"><?php echo $_SESSION['email'];?></h4>
+                    <li><a class="dropdown-item" href="#">Contraseña</a></li>
+                    
+                    
+                    
                    
                     
                   </ul>

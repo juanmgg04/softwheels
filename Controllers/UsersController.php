@@ -32,7 +32,9 @@ class UsersController extends User{
         foreach ($datosusuario as $u){}
         if(password_verify($this->contrasena,$u->contrasena)){
             echo "la contraseña es correcta";
+            $_SESSION['nombre_usuario'] = $u->nombre_usuario;
             $_SESSION['nombre_apellidos'] = $u->nombre_apellidos;
+            $_SESSION['email'] = $u->email;
             header("location: UsersController.php?action=inicio");
         }
         else{
