@@ -183,9 +183,16 @@ ul {
   margin-left: 10%;
   margin-top:2%;
   border-radius: 50px 0px 20px 0px;
+  box-shadow: 12px 8px 12px black;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+ .pricetab:hover{
+    transform: scale(1.1);
+    box-shadow: 7px 7px 3px 3px black;
+ }
   
 
-}
 
 .pricefooter{
   text-align:center;
