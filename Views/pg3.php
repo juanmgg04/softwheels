@@ -45,7 +45,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4">
-                    <input type="password" placeholder="Contraseña" class="form-control bg-dark  p-2 text-white border border-dark" name="contrasena"  pattern="[A-Za-z0-9]{1,15}" minlength="4" required><br>
+                    <input type="password" placeholder="Contraseña" class="form-control bg-dark  p-2 text-white border border-dark" name="contrasena" required><br>
                 </div>
             </div>
 

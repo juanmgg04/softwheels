@@ -48,7 +48,7 @@
                 <div class="col-md-4">
                     <input type="hidden" name="action" value="login">
                     <img src="../Public/Img/person_FILL0_wght400_GRAD0_opsz48.png" id="usuario">
-                    <input placeholder="Usuario" class="form-control bg-dark  p-2 text-white border border-dark" name="nombre_usuario"><br>
+                    <input placeholder="Usuario" class="form-control bg-dark  p-2 text-white border border-dark" name="nombre_usuario" required><br>
                 </div>
             </div>
                 
@@ -58,8 +58,7 @@
                 </div>
                 <div class="col-md-4">
                     <img src="../Public/Img/lock_FILL0_wght400_GRAD0_opsz48.png" id="contraseña">
-                    <input type="password" placeholder="Contraseña"
-                        class="form-control bg-dark  p-2 text-white border border-dark" name="contrasena"><br>
+                    <input type="password" placeholder="Contraseña" class="form-control bg-dark  p-2 text-white border border-dark" name="contrasena" required><br>
                 </div>
 
                 <div>
