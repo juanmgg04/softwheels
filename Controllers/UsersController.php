@@ -2,15 +2,22 @@
 session_start();
 include_once '../Models/User.php';
 
+
+
 class UsersController extends User{
 
     public function CargarVistaRegistrarse()
     {
        include '../Views/pg3.php';
     }
+
+    public function eliminarcuenta(){
+        {
+            include '../Views/pg16.php';
+        }
+    }
     
     public function AlistarInformacion($nombre_usuario,$contrasena,$nombre_apellidos,$email){
-        
         $this->nombre_usuario=$nombre_usuario;
         $this->nombre_apellidos=$nombre_apellidos;
         $this->email=$email;
@@ -18,6 +25,9 @@ class UsersController extends User{
         $this->contrasena=$contrasenaencript;
         $this->GuardarUsuario();
         $this->RedirectLogin();
+        $this->actualizarusuario();
+     
+
 
         // echo $nombre_usuario;
         // echo "guardado" . "<br>";
@@ -32,6 +42,7 @@ class UsersController extends User{
         foreach ($datosusuario as $u){}
         if(password_verify($this->contrasena,$u->contrasena)){
             echo "la contraseña es correcta";
+            $_SESSION['id'] = $u->id;
             $_SESSION['nombre_usuario'] = $u->nombre_usuario;
             $_SESSION['nombre_apellidos'] = $u->nombre_apellidos;
             $_SESSION['email'] = $u->email;
@@ -59,6 +70,16 @@ public function CargarVistaInicio()
 {
     include '../Views/pg2.php';
 }
+public function actualizarusuario()
+{
+    include '../Views/pg14.php';
+}
+
+public function usuarioactualizado()
+{
+    include '../Views/pg15.php';
+}
+
 
 
 }
@@ -86,6 +107,17 @@ if (isset($_POST['action']) && $_POST['action']=="insertar") {
         $usercontroller = new UsersController();
         $usercontroller->CargarVistaInicio();}
 
+    if (isset($_GET['action'])&& $_GET['action']=='actualizarusuario') {
+        $usercontroller = new UsersController();
+        $usercontroller->actualizarusuario();}
 
+    if (isset($_GET['action'])&& $_GET['action']=='usuarioactualizado') {
+        $usercontroller = new UsersController();
+        $usercontroller->usuarioactualizado();}
+
+    if (isset($_GET['action'])&& $_GET['action']=='eliminarcuenta') {
+        $usercontroller = new UsersController();
+        $usercontroller->eliminarcuenta($_GET['id']);
+    }
 
 ?>

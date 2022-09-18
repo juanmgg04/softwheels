@@ -1,3 +1,14 @@
+<?php 
+    $id = $_SESSION['id'];
+    include '../Config/Conexion.php';
+    $conexion = new Conexion();
+    $sql = "SELECT * FROM usuarios WHERE id=$id";
+    $consulta = $conexion->stm->prepare($sql);
+    $consulta->execute();
+    $persona = $consulta->fetchAll(PDO::FETCH_OBJ);
+    foreach($persona as $u){}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,6 +26,9 @@
     <link rel="stylesheet" href="../Public/Css/style11.css">
     <link rel="stylesheet" href="../Public/Css/style12.css">
     <link rel="stylesheet" href="../Public/Css/style13.css">
+    <link rel="stylesheet" href="../Public/Css/style6.css">
+
+    <link rel="stylesheet" href="../Public/Css/style9.css">
     <script src="../Public/JS/pg2.js"></script>
 
 </head>
@@ -40,20 +54,21 @@
                   <a class="nav-link active bg-linght text-light" aria-current="page" href="pg1.html"><b>Cerrar Sesión</b></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-light" href="#" onclick="eliminar()" ><b>Eliminar Cuenta</b></a>
-                </li>
+                  <a class="nav-link text-light" href="#" onclick="eliminar(<?php echo $_SESSION['id']; ?>)" ><b>Eliminar Cuenta</b></a>
+               </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <b>Actualizar Datos</b>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Nombre de Usuario</a></li>
-                    <h4 style="text-align:center ;"><?php echo $_SESSION['nombre_usuario'];?></h4>
-                    <li><a class="dropdown-item" href="#">Nombre y Apellidos</a>
-                    <h4 style="text-align:center ;"><?php echo $_SESSION['nombre_apellidos'];?></h4>
-                    <li><a class="dropdown-item" href="#">Correo</a></li>
-                    <h4 style="text-align:center ;"><?php echo $_SESSION['email'];?></h4>
-                    <li><a class="dropdown-item" href="#">Contraseña</a></li>
+                    <li>Nombre de Usuario:</li>
+                    <?php echo $_SESSION['nombre_usuario'];?><br><br>
+                    <li>Nombre y Apellidos: </li>
+                    <?php echo $_SESSION['nombre_apellidos'];?><br><br>
+                    <li>Correo:</li>
+                    <?php echo $_SESSION['email'];?><br><br>
+                    <a href="UsersController.php?action=actualizarusuario">               
+                    <button class='btn btn-danger' style="text-align: center">Actualizar</button></a>
                     
                     
                     
@@ -69,16 +84,91 @@
    
     
 
-    <div>
+      <div>
         <div class="wave"></div>
         <div class="wave"></div>
         <div class="wave"></div>
     </div>
 
-    <div class="alert alert-" role="alert">
+
     <div class="row">
-        <div class="col-md-4"><img src="../Public/Img/logopr.png" id="logo"></div>
+
+           
+        <div class="col-md-4">
+            <img src="../Public/Img/logopr.png" id="logo">
+        </div>
+    </div>
+    
+
+    <h1>¿Qué deseas hacer?</h1><br>
+
+    
+        <div class="row">
+
+           
+                
+            
+            <div class="col-md-4">
+
+            </div>
+            <button class="btn btn-danger col-md-4" onclick="Registro()">Registrar ingreso de vehículo</button>
+
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <button class="btn btn-danger col-md-4" onclick="msalida()">Registrar salida de vehículo</button>
         
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <button class="btn btn-danger col-md-4" onclick="bd()">Historial de ingreso</button>
+        </div>
+    </div>
+
+    <div id="basededatos">
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+            <h1>Historial:</h1>
+        </div>
+
+        <!-- border border-5 border border-danger mb-5 -->
+        <div class="container text-center" id="dates">
+            <div class="form" id="input_responsive">
+
+                <h4>Seleccione la fecha del registro que quiere mostrar</h4><br>
+
+
+
+                <div class="row">
+
+                    <div class="">
+
+                        <input type="date" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+                    </div>
+                    <div>
+                        <a href="../Views/pg8.php"><button class="btn btn-danger ">Confirmar</button></a><br><br>
+                        <button class="btn btn-danger" onclick="obd()">Volver</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    
+
+    
+    <div id="ingreso">
+    <div class="row">
+        
+         <div class="col-md-4"></div>
         <div class="col-md-4"><h1>Ingrese los siguientes datos para registrar un vehículo:</h1></div>
 
         <div class="container text-center">
@@ -90,7 +180,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <input type="text" placeholder="Nombre y apellido" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+                        <input type="text" placeholder="Nombre y apellido" class="form-control bg-dark  p-2 text-white border border-dark" name="Nombre_Apellidos"><br>
                     </div>
                 </div>
                 <div class="row">
@@ -99,7 +189,7 @@
                   </div>
 
                   <div class="col-md-4">
-                        <input type="number" placeholder="Identificación" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+                        <input type="number" placeholder="Identificación" class="form-control bg-dark  p-2 text-white border border-dark" name="Identificacion"><br>
                   </div>
                 </div>
 
@@ -107,16 +197,28 @@
                  <div class="col-md-4">
                  </div>
                   <div class="col-md-4">
-                        <input type="text" placeholder=" Matrícula" class="form-control bg-dark  p-2 text-white border border-dark"><br>
+                        <input type="text" placeholder=" Matrícula" class="form-control bg-dark  p-2 text-white border border-dark" name="Matricula"><br>
                   </div>
                 </div>
             </div>
 
             <div>
-                <button type="submit" class="btn btn-danger " onclick="mostrarcentros()">Registrar Ingreso</button><br><br>
-                <a href="pg1.html"><button type="submit" class="btn btn-danger">Volver</button></a>
+                <button  class="btn btn-danger " onclick="mostrarcentros()">Registrar Ingreso</button><br><br>
+               <button  class="btn btn-danger" onclick="cancelarregistro1()">Volver</button>
             </div>
-         
+        </div>
+          
+
+
+<!-- date_default_timezone_set('America/Bogota');    
+$DateAndTime2 = date('m-d-Y h:i:s a', time());
+
+echo "$DateAndTime2"; -->
+
+<!-- <input name="Fecha_ingreso"  type="date">
+<input name="Fecha_salida"  type="date"> -->
+
+
         </div>
         
       </div>
@@ -133,21 +235,21 @@
                         <div class="row">
                             <div class="col-md-4">
                             </div>
-                            <button class="btn btn-danger col-md-4" onclick="mostrarctgi()">CTGI</button>
+                            <button class="btn btn-danger col-md-4" onclick="mostrarctgi()" value="CTGI" name="Centro">CTGI</button>
                         </div><br>
     
     
                         <div class="row">
                             <div class="col-md-4">
                             </div>
-                            <button class="btn btn-danger col-md-4" onclick="mostrarcdhc()">CDHC</button>
+                            <button class="btn btn-danger col-md-4" onclick="mostrarcdhc()" value="CDHC" name="Centro">CDHC</button>
                         </div><br>
     
     
                         <div class="row">
                             <div class="col-md-4">
                             </div>
-                            <button class="btn btn-danger col-md-4" onclick="mostrarctdma()">CTDMA</button>
+                            <button class="btn btn-danger col-md-4" onclick="mostrarctdma()" value="CTDMA" name="Centro">CTDMA</button>
                         </div><br>
 
                         <div class="row">
@@ -161,13 +263,13 @@
           </div>
           </div>
         </div>
-
+        <!-- <form action="UsersController.php" method="POST"> -->
           <div id="mctgi">
             <div id="fondo" class="container" ><br>
               <div id="estacion" class="row" >
                  <h3>Parqueadero CTGI</h3></div><br><br>
                  <div id="parkings" class="col-md-9">
-                 <button class="btn btn-success parks" id="p1" onclick="p1()">1</button>
+                 <button class="btn btn-success parks" id="p1" onclick="p1()" name="Numero_Parqueadero" value="1" type="submit">1</button>
                  <button class="btn btn-success parks" id="p2" onclick="p2()">2</button>
                  <button class="btn btn-success parks" id="p3" onclick="p3()">3</button>
                  <button class="btn btn-success parks" id="p4" onclick="p4()">4</button><br>
@@ -247,15 +349,16 @@
     
 
         </div>
-
+        </form>
 
 
         <script src="../Public/JS/sweetalert.min.js"></script>
 
         <script>
-            function eliminar()
-            {
-                swal({
+
+          function eliminar(id)
+       {
+          swal({
           title: "¿Estás seguro?",
           text: "Una vez eliminado no se podrá recuperar la cuenta",
           icon: "warning",
@@ -268,7 +371,9 @@
               icon: "success",
             });
          
-            location.href="#"
+            location.href = '../Views/pg16.php?id=' + id;
+
+
           } else {
             swal("La cuenta no fue eliminada");
           }

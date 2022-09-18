@@ -1,6 +1,62 @@
+function Registro() {
+    document.getElementById('ingreso').style.display = 'block'
+    document.getElementById('mostrarcenters').style.display = 'none';
+    document.getElementById('mctgi').style.display = 'none';
+    document.getElementById('mcdhc').style.display = 'none';
+    document.getElementById('mctdma').style.display = 'none';
+    document.getElementById('basededatos').style.display='none'
+    
+    
+
+}
+
+function bd() {
+    document.getElementById('basededatos').style.display='block'
+    document.getElementById('mostrarcenters').style.display = 'none';
+    document.getElementById('mctgi').style.display = 'none';
+    document.getElementById('mcdhc').style.display = 'none';
+    document.getElementById('mctdma').style.display = 'none';
+    document.getElementById('ingreso').style.display = 'none';
+    
+    
+}
+
+function obd() {
+    document.getElementById('basededatos').style.display='none'
+    document.getElementById('mostrarcenters').style.display = 'none';
+    document.getElementById('mctgi').style.display = 'none';
+    document.getElementById('mcdhc').style.display = 'none';
+    document.getElementById('mctdma').style.display = 'none';
+    document.getElementById('ingreso').style.display = 'none';
+    alert("Se canceló el registro");
+}
+
+function msalida() {
+    document.getElementById('mostrarcenters').style.display = 'block';
+    document.getElementById('mctgi').style.display = 'none';
+    document.getElementById('mcdhc').style.display = 'none';
+    document.getElementById('mctdma').style.display = 'none';
+    document.getElementById('ingreso').style.display = 'none';
+    document.getElementById('basededatos').style.display='none'
+    
+}
+
+
 
 function mostrarcentros() {
     document.getElementById('mostrarcenters').style.display = 'block';
+}
+
+function cancelarregistro1() {
+    document.getElementById('mostrarcenters').style.display = 'none';
+    document.getElementById('mctgi').style.display = 'none';
+    document.getElementById('mcdhc').style.display = 'none';
+    document.getElementById('mctdma').style.display = 'none';
+    document.getElementById('ingreso').style.display = 'none';
+    alert("Se canceló el registro");
+
+   
+    
 }
 
 function cancelarregistro() {
@@ -8,6 +64,7 @@ function cancelarregistro() {
     document.getElementById('mctgi').style.display = 'none';
     document.getElementById('mcdhc').style.display = 'none';
     document.getElementById('mctdma').style.display = 'none';
+    document.getElementById('ingreso').style.display = 'none';
     alert("Se canceló el registro");
 
    
