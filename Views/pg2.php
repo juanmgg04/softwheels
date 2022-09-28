@@ -51,7 +51,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active bg-linght text-light" aria-current="page" href="pg1.html"><b>Cerrar Sesión</b></a>
+                  <a class="nav-link active bg-linght text-light" aria-current="page" href="../principalpg.html"><b>Cerrar Sesión</b></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-light" href="#" onclick="eliminar(<?php echo $_SESSION['id']; ?>)" ><b>Eliminar Cuenta</b></a>
@@ -152,7 +152,7 @@
                         <input type="date" class="form-control bg-dark  p-2 text-white border border-dark"><br>
                     </div>
                     <div>
-                        <a href="../Views/pg8.php"><button class="btn btn-danger ">Confirmar</button></a><br><br>
+                        <a href="../Views/pg8.html"><button class="btn btn-danger ">Confirmar</button></a><br><br>
                         <button class="btn btn-danger" onclick="obd()">Volver</button>
                     </div>
                     

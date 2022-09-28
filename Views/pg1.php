@@ -68,7 +68,7 @@
             <br>
             
             <div id="btn-contrasena">
-                <a href="pg4.html" class="registro btn btn-outline-dark link-white">Recupera tu contraseña</u></a>
+                <a href="../Views/pg4.html" class="registro btn btn-outline-dark link-white">Recupera tu contraseña</u></a>
             </div>
             
         </div>
